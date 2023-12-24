@@ -20,7 +20,7 @@ pub fn panic_implementation(info: &::core::panic::PanicInfo) -> !
 
 #[allow(non_camel_case_types)]
 #[repr(C)]
-#[derive(Clone,Copy)]
+#[derive(Clone,Copy)] 
 pub enum _Unwind_Reason_Code
 {
 	_URC_NO_REASON = 0,
