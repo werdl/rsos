@@ -17,10 +17,10 @@ macro_rules! log{
 pub mod arch;
 
 /// Exception handling (panic)
-use libr::unwind;
+use libr::internals::unwind;
 
 /// Logging code
-use libr::logging;
+use libr::log::logging;
 
 // Kernel entrypoint (called by start.S)
 #[no_mangle]

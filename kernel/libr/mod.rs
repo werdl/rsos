@@ -6,5 +6,5 @@ macro_rules! log{
 	})
 }
 
-pub mod logging;
-pub mod unwind;
+pub mod log;
+pub mod internals;
