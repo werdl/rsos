@@ -1,5 +1,5 @@
-#![feature(panic_info_message)]	//< Panic handling
-#![no_std]	//< Kernels can't use std
+#![feature(panic_info_message)]	// Panic handling
+#![no_std]	// well obviously
 
 mod libr;
 
@@ -22,10 +22,12 @@ use libr::internals::unwind;
 /// Logging code
 use libr::log::logging;
 
-// Kernel entrypoint (called by start.S)
+/// print stuff
+use libr::internals::print;
+
+// Kernel entrypoint (called by start.asm)
 #[no_mangle]
-pub fn kmain()
-{
+pub fn kmain() {
 	log!("Hello world! 1={}", 1);
 	loop {}
 }

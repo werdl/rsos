@@ -4,4 +4,3 @@ version = "0.1.0"
 
 [lib]
 path = "main.rs"
-crate-type = ["staticlib"]

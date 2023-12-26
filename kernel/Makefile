@@ -38,7 +38,7 @@ clean:
 	$(RM) -rf $(BIN) $(BIN).dsm $(OBJDIR)
 
 run:
-	qemu-system-x86_64 -kernel ../kernel.amd64.bin -serial stdio
+	qemu-system-x86_64 -kernel ../kernel.amd64.bin -serial stdio 
 
 # Final link command
 $(BIN): $(OBJS) arch/$(ARCH)/link.ld
@@ -54,10 +54,10 @@ endif
 $(OBJDIR)kernel.a: PHONY Makefile $(TARGETSPEC)
 	@mkdir -p $(dir $@)
 	RUSTFLAGS="$(RUSTFLAGS)" $(CARGO) build -Z build-std=core --target=$(TARGETSPEC) --release
-	@cp --preserve target/target/release/libkernel.a $@
+	@cp --preserve target/target/release/librsos.a $@
 
 # Compile architecture's assembly stub
-$(OBJDIR)start.o: arch/$(ARCH)/start.S Makefile
+$(OBJDIR)start.o: arch/$(ARCH)/start.asm Makefile
 	@mkdir -p $(dir $@)
 	$(AS) $(ASFLAGS) -o $@ $<
 
